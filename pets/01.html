@@ -16,33 +16,47 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <style>
+      .col {
+        text-align: center;
+        margin: auto;
+        width: 50%;
+      }
+     .col h3 {
+      padding: 10px;
+     }
+      ul {
+    text-align: center;
+    list-style-position: inside;
+}
+      </style>
   </head>
   <body>
     <main>
-      <div class="d-flex justify-content-center">
-        <div class="container my-4">
-          <div class="row">
+      <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+            <img src="../images/pets/01-george.jpg" alt="Photo of George" width="auto" height="300">
+          </div>
+          <div class="col">
+            <h3>George</h3>
+            <p><h5>Breed:</h5>British Shorthair</p>
+            <p><h5>Sex:</h5>Male</p>
+            <p><h5>Spayed/Neutered:</h5>Yes</p>
+            <p>George enjoys leisurely days, lounging in sunny spots, and watching the world go by.
+              He's not overly demanding for attention but appreciates a good chin scratch and will
+              purr loudly in response. George is a bit reserved at first but becomes a loyal companion
+              once he feels comfortable. He would be perfect for someone seeking a lowmaintenance, independent cat.</p>
+            <h3>Health Information</h3>
+            <ul>
+              <li>Health checked.</li>
+              <li>Vaccinations up to date.</li> 
+              <li>Regularly dewormed.</li>
+              <li>Microchipped.</li>
+            </ul>
 
-            <div class="col-sm my-4">
-              <div class="card col mx-2" style="width: 18rem">
-                <img
-                  src="../images/pets/01-george.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h3 class="card-title">George</h5>
-                    <div class="my-2">
-                      <div><strong>Type:</strong> Cat</div>
-                      <div><strong>Age:</strong> 4 Years</div>
-                      <div class="d-flex align-items-center"><strong>Sex:</strong> <img src="../images/icons/male-icon.svg" alt="male" width="20" class="mx-1"></div>
-                    </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
     </main>
   </body>
 </html>
