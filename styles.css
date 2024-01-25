@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap");
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
 /***************HOME PAGE STYLES***************/
 
-
 /***************PET PAGES STYLES***************/
+
 .container {
-  
   margin-left: auto;
   margin-right: auto;
 }
@@ -17,25 +21,47 @@
   padding-right: 3%;
   align-items: center;
 }
-.col h3,h5 {
+.col h3,
+h5 {
   margin: 5%;
   text-align: center;
 }
-.colpic { 
+.colpic {
   width: 40%;
 }
-.pic { 
+.pic {
   width: 100%;
   margin-top: 20%;
 }
-a { 
-  color:darksalmon;
+a {
+  color: darksalmon;
   text-decoration: none;
 }
-.centerText{
-	text-align: center;
+.centerText {
+  text-align: center;
 }
-.centerContent{
-	display: flex;
-	justify-content: center;
+.centerContent {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col {
+    width: 100%;
+  }
+
+  .colpic {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pic {
+    width: 18rem;
+  }
 }
