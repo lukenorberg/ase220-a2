@@ -1,6 +1,8 @@
 # Contributors
 
 Luke Norberg
+* Created structure of application
+* Created and stylized home page
 
 Anna Dinius
 * Slightly modified the starting code created by Clarissa
