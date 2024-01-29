@@ -10,83 +10,110 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
- 	<link rel="stylesheet" href="styles.css" type="text/css" />
-   <script
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
   </head>
-  
+
   <body>
-      <div class="container">
-        <div class="row">
-          <div class="colpic">
-            <img class= "pic" src="" alt="Pet photo" id="photo"><!-- JS below fills in src attribute based on pet id-->
+    <div class="container">
+      <div class="row">
+        <div class="colpic">
+          <img
+            class="pic"
+            src=""
+            alt="Pet photo"
+            id="photo"
+          /><!-- JS below fills in src attribute based on pet id-->
+        </div>
+        <div class="col">
+          <h5><a href="index.html">Back to Index</a></h5>
+          <h1 id="content"></h1>
+          <!-- included in code provided by professor - what is this for?? -->
+          <h3 id="name"></h3>
+          <div class="centerText">
+            <p id="breed"></p>
+            <p id="sex"></p>
+            <p id="age"></p>
+            <p id="color"></p>
+            <p id="fixed"></p>
+            <p id="id"></p>
+            <p id="microchip_num"></p>
+            <p id="summary"></p>
           </div>
-          <div class="col">
-            <h5><a href="index.html">Back to Index</a></h5>
-			<h1 id="content"></h1><!-- included in code provided by professor - what is this for?? -->
-			<h3 id="name"></h3>
-            <div class="centerText">
-				<p id="breed"></p>
-				<p id="sex"></p>
-				<p id="age"></p>
-				<p id="color"></p>
-				<p id="fixed"></p>
-				<p id="id"></p>
-				<p id="microchip_num"></p>
-				<p id="summary"></p>
-			</div>
-			
-            <h3>Health Information</h3>
-            <div class="centerContent">
-				<ul id="health_info"></ul>
-			</div>
+
+          <h3>Health Information</h3>
+          <div class="centerContent">
+            <ul id="health_info">
+              <li id="info_1"></li>
+              <li id="info_2"></li>
+              <li id="info_3"></li>
+              <li id="info_4"></li>
+            </ul>
           </div>
         </div>
       </div>
-	
-	<script src="data.js"></script>
-	<script>
-		
-		var clickedPetId; //retrieve the id of the pet that was clicked
-		/* ^ I'm unsure how to do that, but I'm thinking I need to reference the url in the src attribute of the image tag that corresponds to the button
-  		     that was clicked (since the name of the image is the id of the pet) */
-		let id = pets.findIndex(pet => pet.id === clickedPetId); //use pet id to find index of corresponding pet object in array
+    </div>
 
-		//does this need to be a function?
-		function retrievePetInfo(id){ 
-			let i = id;
+    <script src="data.js"></script>
+    <script>
+      var clickedPetId; //retrieve the id of the pet that was clicked
+      /* ^ I'm unsure how to do that, but I'm thinking I need to reference the url in the src attribute of the image tag that corresponds to the button
+      		     that was clicked (since the name of the image is the id of the pet) */
+      let id = pets.findIndex((pet) => pet.id === clickedPetId); //use pet id to find index of corresponding pet object in array
 
-			//filling in the src attribute of the image based on the pet id
-			document.getElementById('photo').setAttribute('src', 'images/pets/' + id + '.jpg');
-			
-			//filling in the text information on the page
-			document.getElementById('name').innerText = pets[i].name;
-			document.getElementById('breed').innerHTML = ('<strong>Breed: </strong>' + pets[i].breed);
-			document.getElementById('age').innerHTML = ('<strong>Age: </strong>' + pets[i].age);
-			document.getElementById('color').innerHTML = ('<strong>Color: </strong>' + pets[i].color);
-			document.getElementById('fixed').innerHTML = ('<strong>Spayed/Neutered: </strong>' + pets[i].fixed);
-			document.getElementById('id').innerHTML = ('<strong>Animal ID: </strong>' + pets[i].id);
-			document.getElementById('microchip_num').innerHTML = ('<strong>Microchip Number: </strong>' + pets[i].microchip_num);
-			document.getElementById('summary').innerHTML = ('<strong>Breed: </strong>' + pets[i].summary);
-		}
-		retrievePetInfo(id);
-		
-		/*
-		code provided by professor for the detail.html page:
-    
-  		let index=getQueryParam('index');
-		if(index===null) window.location.href='index.html';
-		else document.getElementById('content').innerHTML=index;
-	
-		function getQueryParam(key){
-			let queryParams=new URLSearchParams(window.location.search);
-			return queryParams.has(key) ? queryParams.get(key) : null;
-		}
-  		
-    		*/
-	</script>
+      //does this need to be a function?
+      function retrievePetInfo(id) {
+        let i = 2;
+
+        //filling in the src attribute of the image based on the pet id
+        document
+          .getElementById("photo")
+          .setAttribute("src", "images/pets/" + pets[i].id + ".jpg");
+
+        //filling in the text information on the page
+        document.getElementById("name").innerText = pets[i].name;
+        document.getElementById("breed").innerHTML =
+          "<strong>Breed: </strong>" + pets[i].breed;
+        document.getElementById("age").innerHTML =
+          "<strong>Age: </strong>" + pets[i].age;
+        document.getElementById("color").innerHTML =
+          "<strong>Color: </strong>" + pets[i].color;
+        document.getElementById("fixed").innerHTML =
+          "<strong>Spayed/Neutered: </strong>" + pets[i].fixed;
+        document.getElementById("id").innerHTML =
+          "<strong>Animal ID: </strong>" + pets[i].id;
+        document.getElementById("microchip_num").innerHTML =
+          "<strong>Microchip Number: </strong>" + pets[i].microchip_num;
+        document.getElementById("breed").innerHTML =
+          "<strong>Breed: </strong>" + pets[i].breed;
+        document.getElementById("summary").innerHTML =
+          "<strong>Summary: </strong>" + pets[i].summary;
+
+        let health_info = document.getElementById("health_info");
+        for (let j = 0; j < pets[i].health_info.length; j++) {
+          let info = document.getElementById(`info_${j + 1}`);
+          info.innerHTML = pets[i].health_info[j];
+        }
+      }
+      retrievePetInfo(id);
+
+      /*
+      code provided by professor for the detail.html page:
+
+      		let index=getQueryParam('index');
+      if(index===null) window.location.href='index.html';
+      else document.getElementById('content').innerHTML=index;
+
+      function getQueryParam(key){
+      	let queryParams=new URLSearchParams(window.location.search);
+      	return queryParams.has(key) ? queryParams.get(key) : null;
+      }
+
+        		*/
+    </script>
   </body>
 </html>
