@@ -122,11 +122,10 @@
       </div>
     </main>
     <script type="text/javascript">  
-    let contentDiv=document.getElementByClassName('my-2');
+    let contentDiv=document.getElementsByClassName('my-2');
     for(let i=0;i<pets.length;i++){
     contentDiv.innerHTML+=`<div class="card"><h1>${pets[i].name}</h1><a href="detail.html?item=${i}">See details</a></div>`;
     } 
-          
     let contentDivtype=document.getElementById("type");
     for(let i=0;i<pets.length;i++){
     contentDivtype.innerHTML+="<p><strong>Type: </strong>"+pets[i].type+"</p>";
@@ -140,7 +139,8 @@
     let contentDivsex=document.getElementById("sex");
     for(let i=0;i<pets.length;i++){
     contentDivsex.innerHTML+="<p><strong>Sex: </strong>"+pets[i].sex+"</p>";
-     }
+     }     
+    
    </script>
   </body>
 </html>
