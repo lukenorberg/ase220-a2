@@ -38,7 +38,7 @@
                   alt="..."
                 />
                 <div class="card-body">
-                  <h3 class="card-title w-100">George</h3>
+                  <!--<h3 class="card-title w-100">George</h3>-->
                   <div class="my-2">
                     <div id="type"></div>
                     <div id="age"></div>
@@ -46,7 +46,7 @@
                     <!---<div><strong>Type:</strong> Cat</div>
                     <div><strong>Age:</strong> 4 Years</div>
                     <div class="d-flex align-items-center">
-                      <strong>Sex:</strong>--->
+                      <strong>Sex:</strong>
                       <img
                         src="./images/icons/male-icon.svg"
                         alt="male"
@@ -60,7 +60,7 @@
               </div>
             </div>
 
-            <!---<div class="col-sm my-4">
+            <div class="col-sm my-4">
               <div class="card col mx-2" style="width: 18rem">
                 <img
                   src="./images/pets/02-max.jpg"
@@ -121,21 +121,26 @@
         </div>
       </div>
     </main>
-    <script type="text/javascript">              
-      let contentDivtype=document.getElementById("type");
-       for(let i=0;i<pets.length;i++){
-      contentDivtype.innerHTML="<p><strong>Type: </strong>"+pets[i].type+"</p>";
-       }
+    <script type="text/javascript">  
+    let contentDiv=document.getElementByClassName('my-2');
+    for(let i=0;i<pets.length;i++){
+    contentDiv.innerHTML+=`<div class="card"><h1>${pets[i].name}</h1><a href="detail.html?item=${i}">See details</a></div>`;
+    } 
+          
+    let contentDivtype=document.getElementById("type");
+    for(let i=0;i<pets.length;i++){
+    contentDivtype.innerHTML+="<p><strong>Type: </strong>"+pets[i].type+"</p>";
+    }
 
-       let contentDivage=document.getElementById("age");
-       for(let i=0;i<pets.length;i++){
-       contentDivage.innerHTML="<p><strong>Age: </strong>"+pets[i].age+"</p>";
-       }
+    let contentDivage=document.getElementById("age");
+    for(let i=0;i<pets.length;i++){
+    contentDivage.innerHTML+="<p><strong>Age: </strong>"+pets[i].age+"</p>";
+    }
        
-       let contentDivsex=document.getElementById("sex");
-       for(let i=0;i<pets.length;i++){
-       contentDivsex.innerHTML="<p><strong>Sex: </strong>"+pets[i].sex+"</p>";
-       }
+    let contentDivsex=document.getElementById("sex");
+    for(let i=0;i<pets.length;i++){
+    contentDivsex.innerHTML+="<p><strong>Sex: </strong>"+pets[i].sex+"</p>";
+     }
    </script>
   </body>
 </html>
