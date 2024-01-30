@@ -46,17 +46,17 @@
       <div id="content"></div>
     </main>
     <script type="text/javascript">
-      let contentDiv = document.getElementById("content");
-      console.log(pets);
-      for (let i = 0; i < pets.length; i++) {
-        contentDiv.innerHTML += `<div class="card">
-      <h1>${pets[i].name}</h1>
-<img src="./images/pets/${pets[i].id}.jpg">
-      <p><strong>Age: </strong>${pets[i].age}</p>
-      <p><strong>Sex: </strong>${pets[i].sex}</p>
-      <p><strong>Type: </strong>${pets[i].type}</p>
-      <a href="detail.html?item=${i}">See details</a></div>`; // (replace the HTML in the string with the HTML of the card, use ${DATA} to inject your data into the string. Notice the += sign, which will add/append to the content of the div instead
-      }
+            let contentDiv = document.getElementById("content");
+            console.log(pets);
+            for (let i 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= 0; i < pets.length; i++) {
+              contentDiv.innerHTML += `<div class="card">
+            <h1>${pets[i].name}</h1>
+      <img src="./images/pets/${pets[i].id}.jpg">
+            <p><strong>Age: </strong>${pets[i].age}</p>
+            <p><strong>Sex: </strong>${pets[i].sex}</p>
+            <p><strong>Type: </strong>${pets[i].type}</p>
+            <a href="detail.html?item=${i}">See details</a></div>`; // (replace the HTML in the string with the HTML of the card, use ${DATA} to inject your data into the string. Notice the += sign, which will add/append to the content of the div instead
+            }
     </script>
   </body>
 </html>
