@@ -11,4 +11,6 @@ Anna Dinius
 Clarissa Hornback
 * Created starting code for the individual pets pages.
 * Primary creator of 01.html
-&nbsp; Assignment-03
+  Assignment-03
+  * Worked on creating the dynamic cards for the index page
+  * Slightly modified the data.js file
