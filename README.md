@@ -1,8 +1,8 @@
 # Contributors
 
 Luke Norberg
-* Created structure of application
-* Created and stylized home page
+* Created data.js file
+* implemented query parameters for the details page
 
 Anna Dinius
 * Slightly modified the starting code created by Clarissa
