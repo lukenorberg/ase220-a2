@@ -36,6 +36,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/34621.jpg"
   },
   {
     name: "Luna",
@@ -55,6 +56,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/41382.jpg"
   },
   {
     name: "Sandy",
@@ -74,6 +76,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/47920.jpg"
   },
   {
     name: "Oliver",
@@ -93,6 +96,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/49583.jpg"
   },
   {
     name: "Max",
@@ -112,6 +116,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/50824.jpg"
   },
   {
     name: "Daisy",
@@ -131,6 +136,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/57281.jpg"
   },
   {
     name: "Charlie",
@@ -150,6 +156,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/58329.jpg"
   },
   {
     name: "George",
@@ -169,6 +176,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/61029.jpg"
   },
   {
     name: "Bella",
@@ -188,6 +196,7 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/62894.jpg"
   },
   {
     name: "Sophie",
@@ -207,5 +216,6 @@ const pets = [
       "Regularly dewormed.",
       "Microchipped.",
     ],
+    image: "./images/pets/63845.jpg"
   },
 ];
