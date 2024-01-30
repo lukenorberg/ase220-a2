@@ -66,7 +66,6 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       let i = urlParams.getAll("item")[0];
-      console.log(id);
       //does this need to be a function?
       //filling in the src attribute of the image based on the pet id
       document
@@ -77,6 +76,8 @@
       document.getElementById("name").innerText = pets[i].name;
       document.getElementById("breed").innerHTML =
         "<strong>Breed: </strong>" + pets[i].breed;
+      document.getElementById("sex").innerHTML =
+        "<strong>Sex: </strong>" + pets[i].sex;
       document.getElementById("age").innerHTML =
         "<strong>Age: </strong>" + pets[i].age;
       document.getElementById("color").innerHTML =
@@ -97,7 +98,6 @@
         let info = document.getElementById(`info_${j + 1}`);
         info.innerHTML = pets[i].health_info[j];
       }
-      retrievePetInfo(id);
 
       /*
       code provided by professor for the detail.html page:
