@@ -25,116 +25,18 @@
   </head>
   <body>
     <main>
-      <div class="d-flex justify-content-center">
-        <div class="container my-4">
-          <div class="row">
-            <div class="col-sm my-4">
-              <div class="card col mx-2" style="width: 18rem">
-                <img
-                  src="./images/pets/01-george.jpg"
-                  width="auto"
-                  height="200px"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <!--<h3 class="card-title w-100">George</h3>-->
-                  <div class="my-2">
-                    <div id="type"></div>
-                    <div id="age"></div>
-                    <div id="sex"></div>
-                      <img
-                        src="./images/icons/male-icon.svg"
-                        alt="male"
-                        width="20"
-                        class="mx-1"
-                      />
-                    </div>
-                  </div>
-                 <!-- <a href="./detail.html" class="btn btn-primary">Details</a>-->
-                </div>
-              </div>
-            </div>
-            <!--<div class="col-sm my-4">
-              <div class="card col mx-2" style="width: 18rem">
-                <img
-                  src="./images/pets/02-max.jpg"
-                  width="auto"
-                  height="200px"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h3 class="card-title w-100">Max</h3>
-                  <div class="my-2">
-                    <div><strong>Type:</strong> Dog</div>
-                    <div><strong>Age:</strong> 4 Years</div>
-                    <div class="d-flex align-items-center">
-                      <strong>Sex:</strong>
-                      <img
-                        src="./images/icons/male-icon.svg"
-                        alt="male"
-                        width="20"
-                        class="mx-1"
-                      />
-                    </div>
-                  </div>
-                  <a href="./pets/02.html" class="btn btn-primary">Details</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm my-4">
-              <div class="card col mx-2" style="width: 18rem">
-                <img
-                  src="./images/pets/03-sandy.jpg"
-                  width="auto"
-                  height="200px"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h3 class="card-title w-100">Sandy</h3>
-                  <div class="my-2">
-                    <div><strong>Type:</strong> Dog</div>
-                    <div><strong>Age:</strong> 7 Years</div>
-                    <div class="d-flex align-items-center">
-                      <strong>Sex:</strong>
-                      <img
-                        src="./images/icons/female-icon.svg"
-                        alt="female"
-                        width="20"
-                        class="mx-1"
-                      />
-                    </div>
-                  </div>
-                  <a href="./pets/03.html" class="btn btn-primary">Details</a>
-                </div>
-              </div>
-            </div>-->
-          </div>
-        </div>
-      </div>
+      <div id="content"></div>
     </main>
     <script type="text/javascript">  
-    let contentDiv=document.getElementsByClassName('my-2');
+    let contentDiv=document.getElementById('content');
     for(let i=0;i<pets.length;i++){
-    contentDiv.innerHTML+=`<div class="card"><h1>${pets[i].name}</h1><a href="detail.html?item=${i}">See details</a></div>`;
-    } 
-    let contentDivtype=document.getElementById("type");
-    for(let i=0;i<pets.length;i++){
-    contentDivtype.innerHTML+="<p><strong>Type: </strong>"+pets[i].type+"</p>";
+    contentDiv.innerHTML+=`<div class="card">
+      <h1>${pets[i].name}</h1>
+      <p><strong>Age: </strong>${pets[i].age}</p>
+      <p><strong>Sex: </strong>${pets[i].sex}</p>
+      <p><strong>Type: </strong>${pets[i].type}</p>
+      <a href="detail.html?item=${i}">See details</a></div>`; // (replace the HTML in the string with the HTML of the card, use ${DATA} to inject your data into the string. Notice the += sign, which will add/append to the content of the div instead 
     }
-
-    let contentDivage=document.getElementById("age");
-    for(let i=0;i<pets.length;i++){
-    contentDivage.innerHTML+="<p><strong>Age: </strong>"+pets[i].age+"</p>";
-    }
-       
-    let contentDivsex=document.getElementById("sex");
-    for(let i=0;i<pets.length;i++){
-    contentDivsex.innerHTML+="<p><strong>Sex: </strong>"+pets[i].sex+"</p>";
-     }     
     
    </script>
   </body>
