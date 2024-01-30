@@ -1,0 +1,27 @@
+<html>
+	<head><title>Index</title></head>
+	<body>
+	
+	<div id="container">
+		<!--Use the for loop in the script below to generate the cards in this div-->
+	</div>
+	
+	<script>
+		var content = document.getElementById("container");
+		
+		<!--the array below is just here for the example (as you already know, the array for our project is in an external js file)-->
+		var pets = [
+		{name:"A"},
+		{name:"B"},
+		{name:"C"}
+		];
+		
+		for (i=0;i<pets.length;i++){
+			content.innerHTML+=`<a href="detail.html?index=${i}">${pets[i].name}</a><br>`
+			
+			/*generate the cards using this loop*/
+		}
+	</script>
+		
+	</body>
+</html>

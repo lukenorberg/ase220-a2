@@ -56,8 +56,16 @@
           </div>
         </div>
       </div>
-    </div>
+	
+	<script src="data.js"></script>
+	<script>
+		
+		var clickedPetId; //retrieve the id of the pet that was clicked
+		/* ^ I'm unsure how to do that, but I'm thinking I need to reference the url in the src attribute of the image tag that corresponds to the button
+  		     that was clicked (since the name of the image is the id of the pet) */
+		let id = pets.findIndex(pet => pet.id === clickedPetId); //use pet id to find index of corresponding pet object in array
 
+		//does this need to be a function?
     <script src="data.js"></script>
     <script>
       var clickedPetId; //retrieve the id of the pet that was clicked
