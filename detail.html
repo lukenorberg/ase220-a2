@@ -63,39 +63,39 @@
       var clickedPetId; //retrieve the id of the pet that was clicked
       /* ^ I'm unsure how to do that, but I'm thinking I need to reference the url in the src attribute of the image tag that corresponds to the button
       		     that was clicked (since the name of the image is the id of the pet) */
-      let id = pets.findIndex((pet) => pet.id === clickedPetId); //use pet id to find index of corresponding pet object in array
-
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      let i = urlParams.getAll("item")[0];
+      console.log(id);
       //does this need to be a function?
-      function retrievePetInfo(id) {
-        //filling in the src attribute of the image based on the pet id
-        document
-          .getElementById("photo")
-          .setAttribute("src", "images/pets/" + pets[i].id + ".jpg");
+      //filling in the src attribute of the image based on the pet id
+      document
+        .getElementById("photo")
+        .setAttribute("src", "images/pets/" + pets[i].id + ".jpg");
 
-        //filling in the text information on the page
-        document.getElementById("name").innerText = pets[i].name;
-        document.getElementById("breed").innerHTML =
-          "<strong>Breed: </strong>" + pets[i].breed;
-        document.getElementById("age").innerHTML =
-          "<strong>Age: </strong>" + pets[i].age;
-        document.getElementById("color").innerHTML =
-          "<strong>Color: </strong>" + pets[i].color;
-        document.getElementById("fixed").innerHTML =
-          "<strong>Spayed/Neutered: </strong>" + pets[i].fixed;
-        document.getElementById("id").innerHTML =
-          "<strong>Animal ID: </strong>" + pets[i].id;
-        document.getElementById("microchip_num").innerHTML =
-          "<strong>Microchip Number: </strong>" + pets[i].microchip_num;
-        document.getElementById("breed").innerHTML =
-          "<strong>Breed: </strong>" + pets[i].breed;
-        document.getElementById("summary").innerHTML =
-          "<strong>Summary: </strong>" + pets[i].summary;
+      //filling in the text information on the page
+      document.getElementById("name").innerText = pets[i].name;
+      document.getElementById("breed").innerHTML =
+        "<strong>Breed: </strong>" + pets[i].breed;
+      document.getElementById("age").innerHTML =
+        "<strong>Age: </strong>" + pets[i].age;
+      document.getElementById("color").innerHTML =
+        "<strong>Color: </strong>" + pets[i].color;
+      document.getElementById("fixed").innerHTML =
+        "<strong>Spayed/Neutered: </strong>" + pets[i].fixed;
+      document.getElementById("id").innerHTML =
+        "<strong>Animal ID: </strong>" + pets[i].id;
+      document.getElementById("microchip_num").innerHTML =
+        "<strong>Microchip Number: </strong>" + pets[i].microchip_num;
+      document.getElementById("breed").innerHTML =
+        "<strong>Breed: </strong>" + pets[i].breed;
+      document.getElementById("summary").innerHTML =
+        "<strong>Summary: </strong>" + pets[i].summary;
 
-        let health_info = document.getElementById("health_info");
-        for (let j = 0; j < pets[i].health_info.length; j++) {
-          let info = document.getElementById(`info_${j + 1}`);
-          info.innerHTML = pets[i].health_info[j];
-        }
+      let health_info = document.getElementById("health_info");
+      for (let j = 0; j < pets[i].health_info.length; j++) {
+        let info = document.getElementById(`info_${j + 1}`);
+        info.innerHTML = pets[i].health_info[j];
       }
       retrievePetInfo(id);
 
