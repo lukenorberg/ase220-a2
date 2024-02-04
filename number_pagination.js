@@ -48,7 +48,7 @@ function generateCards() {
     cardDiv.innerHTML = "";
   }
   let minAnimalId = (currentPage - 1) * cardsOnPage;
-  let maxAnimalId = cardsOnPage * currentPage;
+  let maxAnimalId = Math.min(cardsOnPage * currentPage, pets.length);
   for (let i = minAnimalId; i < maxAnimalId; i++) {
     cardDiv.innerHTML += `<div class="card">
             <h1>${pets[i].name}</h1>
