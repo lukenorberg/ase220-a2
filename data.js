@@ -598,4 +598,24 @@ const pets = [
     ],
     image: "./images/pets/71901.jpg",
   },
+  {
+    name: "Cleo",
+    id: 72012,
+    fixed: true,
+    microchip_num: "982020123456789",
+    summary:
+      "Cleo is an enchanting Calico cat with a distinctive tricolor coat, embodying grace and independence. She was discovered in a bustling urban area, showcasing resilience and adaptability. Cleo is curious and enjoys exploring her surroundings, but she also appreciates quiet moments of affection. She's a bit selective with her human friends but forms strong bonds once she feels secure. Cleo would thrive in a calm environment where she can enjoy both adventure and relaxation.",
+    type: "Cat",
+    breed: "Calico",
+    sex: "Female",
+    color: "Tricolor (Black, Orange, White)",
+    age: "3 Years",
+    health_info: [
+      "Health checked.",
+      "Vaccinations up to date.",
+      "Regularly dewormed.",
+      "Microchipped.",
+    ],
+    image: "./images/pets/72012.jpg",
+  },
 ];
