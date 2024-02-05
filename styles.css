@@ -21,6 +21,22 @@ body {
 	margin: 10px;
 	border-radius: 10px;
 }
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.load-btn {
+  background-color:darksalmon;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+.load-btn:hover {
+  background-color: gainsboro;
+}
 
 /***************PET PAGES STYLES***************/
 
