@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Adopt-A-Pet</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- comment -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Space Grotesk"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" type="text/css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="data.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="content"></div>
+
+	  <!-- Modal -->
+		<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h1 class="modal-title fs-5" id="modalLabel">Pet Name</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  
+			  <div class="modal-body" id="modalBody"></div>
+			  
+			  <div class="modal-footer" id="modalButton"></div>
+			</div>
+		  </div>
+		</div>
+    </main>
+	
+    <script type="text/javascript">
+      let contentDiv = document.getElementById("content");
+      console.log(pets);
+      for (let i = 0; i < pets.length; i++) {
+        contentDiv.innerHTML += `<div class="card">
+		  <h1 id="name">${pets[i].name}</h1>
+		  <img src="./images/pets/${pets[i].id}.jpg">
+		  <p><strong>Age: </strong>${pets[i].age}</p>
+		  <p><strong>Sex: </strong>${pets[i].sex}</p>
+		  <p><strong>Type: </strong>${pets[i].type}</p>
+		  <a href="detail.html?item=${i}" id="link"></a>	
+	  	  
+		  <!-- create the button that triggers the modal -->
+			<button type="button" class="btn btn-primary getButton" data-bs-toggle="modal" data-bs-target="#modal">See Details</button>
+			</div>`;
+	  }
+	  
+	  function fillModal()
+	  {
+		var i = 0; // TEMPORARY (purpose: checking that the following code works)
+		
+		<!--do we need to display pet photo?-->
+		
+		<!--filling in modal wth pet info-->
+		document.getElementById('modalLabel').innerText = pets[i].name;
+		document.getElementById('modalBody').innerHTML = `<div class="centerText">
+		<p id="breed"><strong>Breed: </strong>${pets[i].breed}</p>
+		<p id="sex"><strong>Sex: </strong>${pets[i].sex}</p>
+		<p id="age"><strong>Age: </strong>${pets[i].age}</p>
+		<p id="color"><strong>Color: </strong>${pets[i].color}</p>
+		<p id="fixed"><strong>Spayed/Neutered: </strong>${pets[i].fixed}</p>
+		<p id="id"><strong>Animal ID: </strong>${pets[i].id}</p>
+		<p id="microchip_num"><strong>Microchip Number: </strong>${pets[i].microchip_num}</p>`;
+		<!--how much info should be we include in the modal?-->
+		
+		document.getElementById('modalButton').innerHTML = `<button type="button" class="btn btn-primary">See More Details</button>`;
+	  }
+	  
+	  <!-- adding event listeners to "See Details" buttons to fill in modal with info -->
+	  
+	  var buttons = document.getElementsByClassName("getButton");
+	  for (let i = 0; i < buttons.length; i++)
+	  {
+		buttons[i].addEventListener("click",fillModal);
+	  }
+	  
+    </script>
+  </body>
+</html>
