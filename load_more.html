@@ -30,14 +30,14 @@
     </main>
     <script type="text/javascript">
       var offset=0;
-		  var rpp=6;
+		  var rpp=9;
       let loadMoreButton=document.createElement('button');
 		    loadMoreButton.classList.add('btn','load-btn');
 		    loadMoreButton.classList.add('btn-primary');
 		    loadMoreButton.innerText='Load more';
 		    loadMoreButton.addEventListener('click',function(){
 			    console.log('clicked');
-			    offset+=6;
+			    offset+=9;
 			    displayElements();
 		});
 		document.querySelector('#loadmore').append(loadMoreButton);
