@@ -9,6 +9,6 @@ Anna Dinius
 * Worked on creating the detail.html file
 
 Clarissa Hornback
-* Worked on creating the dynamic cards for the index page
-* Slightly modified the data.js file
+* Created the load more pagination page
+* Modified css file for the load more page
 
