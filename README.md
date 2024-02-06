@@ -10,5 +10,5 @@ Anna Dinius
 
 Clarissa Hornback
 * Created the load more pagination page
-* Modified css file for the load more page
+* Modified css file for the load more button
 
