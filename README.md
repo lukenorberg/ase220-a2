@@ -1,8 +1,8 @@
 # Contributors
 
 Luke Norberg
-* Created structure of application
-* Created and stylized home page
+* Created number pagination
+* added additional bootstrap styling
 
 Anna Dinius
 * Created the modal
