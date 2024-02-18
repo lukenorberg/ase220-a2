@@ -58,6 +58,7 @@
 		</div>
 
     </main>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 		var offset=0;
 			var rpp=9;
@@ -92,8 +93,6 @@
 				
 				button.addEventListener("click",function(e)
 				  {
-					//Do we need to display pet photo?
-					
 					document.querySelector("#modal [name=name]").innerText = pets[i].name;
 					document.querySelector("#modal [name=breed]").innerText = pets[i].breed;
 					document.getElementById("sex").innerText = pets[i].sex;
@@ -103,8 +102,6 @@
 					document.getElementById("id").innerText = pets[i].id;
 					document.getElementById("microchip_num").innerText = pets[i].microchip_num;
 					document.querySelector('#modal a').setAttribute('href','detail.html?item=' + i);
-					//How much info should be we include in the modal?
-					
 				  });
 				
 				card.innerHTML = `<h1 id="name">${pets[i].name}</h1>
@@ -112,7 +109,8 @@
 				<p><strong>Age: </strong>${pets[i].age}</p>
 				<p><strong>Sex: </strong>${pets[i].sex}</p>
 				<p><strong>Type: </strong>${pets[i].type}</p>
-				<a href="detail.html?item=${i}" id="link"></a>`;
+				<a href="detail.html?item=${i}" id="link"></a>
+				<button class="btn btn-sm btn-danger btn-delete">Delete</button>`;
 				
 				//appending elements
 				
@@ -134,6 +132,13 @@
 		}
     
 		displayElements();
+		
+		// Delete button
+		
+		$(document).on('click','.btn-danger',function(){
+			pets.splice(pets.indexOf($(this).parents('div').find('#data-id'==pets.indexOf($(this))).text()),1);
+			$(this).parent('div').remove();
+		});
 	
     </script>
   </body>

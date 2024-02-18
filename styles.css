@@ -27,6 +27,11 @@ body {
   align-items: center;
   margin: 20px;
 }
+.btn-delete{
+  font-size: 16px;
+  padding: 8px 18px;
+  float: right;
+}
 .load-btn {
   background-color:darksalmon;
   color: white;
