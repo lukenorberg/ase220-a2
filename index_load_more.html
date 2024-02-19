@@ -25,10 +25,14 @@
   </head>
   <body>
     <main>
-      <div id="content"></div>
+      <div id="content">
+		<div id="btn-div">
+		  <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create" id="btn-create">Create</button>
+		</div>
+	  </div>
       <div id="loadmore" class="btn-container"></div>
 	  
-	  <!-- Modal -->
+	  <!-- Modal: Preview Info -->
 		<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
@@ -39,7 +43,7 @@
 			  
 			  <div class="modal-body" id="modalBody">
 				<div class="centerText">
-					<p ><strong>Breed: </strong><span name="breed"></span></p>
+					<p><strong>Breed: </strong><span name="breed"></span></p>
 					<p><strong>Sex: </strong><span id="sex"></span></p>
 					<p><strong>Age: </strong><span id="age"></span></p>
 					<p><strong>Color: </strong><span id="color"></span></p>
@@ -56,6 +60,39 @@
 			</div>
 		  </div>
 		</div>
+		
+		<!-- Modal: Create Pet -->
+		<div class="modal fade" id="modal-create" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h1 class="modal-title fs-5" name="name">Create a Pet Listing</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  
+			  <div class="modal-body">
+				<div id="input-area">
+					<p><strong>Name: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="name"></p>
+					<p><strong>Age: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="age"></p>
+					<p><strong>Sex: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="sex"></p>
+					<p><strong>Type: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="type"></p>
+					<p><strong>Breed: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="breed"></p>
+					<p><strong>Color: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="color"></p>
+					<p><strong>Spayed/Neutered: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="fixed"></p>
+					<p><strong>Animal ID: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="id"></p>
+					<p><strong>Microchip Number: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="microchip_num"></p>
+					<p><strong>Summary: &nbsp;&nbsp;</strong><textarea class="textarea form-control" name="summary"></textarea></p>
+					<p><strong>Health Information: &nbsp;&nbsp;</strong><textarea class="textarea form-control" name="health_info"></textarea></p>
+				</div>
+			  </div>
+			  
+			  <div class="modal-footer" id="modalButton">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btn-cancel">Cancel</button>
+				<button type="button" class="btn btn-primary" id="btn-save">Save</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
 
     </main>
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -67,7 +104,7 @@
 		    loadMoreButton.classList.add('btn-primary');
 		    loadMoreButton.innerText='Load more';
 		    loadMoreButton.addEventListener('click',function(){
-			    console.log('clicked');
+			    //console.log('clicked');
 			    offset+=9;
 			    displayElements();
 		});
@@ -133,13 +170,45 @@
     
 		displayElements();
 		
-		// Delete button
+	  // "Delete" button
 		
 		$(document).on('click','.btn-danger',function(){
-			pets.splice(pets.indexOf($(this).parents('div').find('#data-id'==pets.indexOf($(this))).text()),1);
-			$(this).parent('div').remove();
+		  pets.splice(pets.indexOf($(this).parents('div').find('#data-id'==pets.indexOf($(this))).text()),1);
+		  $(this).parent('div').remove();
 		});
-	
+		
+	  // "Create" button (adding input to array)
+		
+		$(document).on('click','#btn-save',function(){
+		  var name = $('#input-area [name="name"]').val();
+		  var age = $('#input-area [name="age"]').val();
+		  var sex = $('#input-area [name="sex"]').val();
+		  var breed = $('#input-area [name="breed"]').val();
+		  var color = $('#input-area [name="color"]').val();
+		  var fixed = $('#input-area [name="fixed"]').val();
+		  var id = $('#input-area [name="id"]').val();
+		  var microchip_num = $('#input-area [name="microchip_num"]').val();
+		  var summary = $('#input-area [name="summary"]').val();
+		  var health_info = $('#input-area [name="health_info"]').val();
+		  var type = $('#input-area [name="type"]').val();
+		  
+		  var newPet = {
+		    name: name,
+			age: age,
+			sex: sex,
+			breed: breed,
+			color: color,
+			fixed: fixed,
+			id: id,
+			microchip_num: microchip_num,
+			summary: summary,
+			health_info: health_info,
+			type: type,
+		  }
+		  pets.push(newPet);
+		})
+		
+		
     </script>
   </body>
 </html>

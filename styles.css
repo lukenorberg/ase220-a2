@@ -6,26 +6,46 @@ body {
 
 /***************INDEX PAGE STYLES***************/
 .card {
-        width: calc(33.33% - 20px);
-        box-sizing: border-box;
-        border: 1px solid #000000;
-        padding: 20px;
-        margin: 10px;
-        display: inline-block;
-        text-align: center;
-      }
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+}
 .card img {
-	width: 50%;
-	height: auto;
-	max-height: 150px;
-	margin: 10px;
-	border-radius: 10px;
+  width: 50%;
+  height: auto;
+  max-height: 150px;
+  margin: 10px;
+  border-radius: 10px;
 }
 .btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px;
+}
+#btn-div{
+  margin: 10px auto 10px;
+  display: flex;
+  justify-content: center;
+}
+#btn-create{
+  font-size: 18px;
+  padding: 10px 20px;
+}
+#input-area{
+  padding: 10px 10px 0 10px;
+}
+#btn-save{
+  background-color:darksalmon;
+  border: none;
+  font-size: 18px;
+}
+.textarea{
+	height: 1;
 }
 .btn-delete{
   font-size: 16px;
