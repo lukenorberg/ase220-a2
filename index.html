@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Adopt-A-Pet</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- comment -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Space Grotesk"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" type="text/css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="data.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="content">
+        <div id="btn-div">
+          <button
+            class="btn btn-sm btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-create"
+            id="btn-create"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+      <div id="loadmore" class="btn-container"></div>
+
+      <!-- Modal: Preview Info -->
+      <div
+        class="modal fade"
+        id="modal"
+        tabindex="-1"
+        aria-labelledby="modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" name="name">Pet Name</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body" id="modalBody">
+              <div class="centerText">
+                <p><strong>Breed: </strong><span name="breed"></span></p>
+                <p><strong>Sex: </strong><span id="sex"></span></p>
+                <p><strong>Age: </strong><span id="age"></span></p>
+                <p><strong>Color: </strong><span id="color"></span></p>
+                <p>
+                  <strong>Spayed/Neutered: </strong><span id="fixed"></span>
+                </p>
+                <p><strong>Animal ID: </strong><span id="id"></span></p>
+                <p>
+                  <strong>Microchip Number: </strong
+                  ><span id="microchip_num"></span>
+                </p>
+              </div>
+            </div>
+
+            <div class="modal-footer" id="modalButton">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <a href="#" class="btn btn-primary">See More Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal: Create Pet -->
+
+      <div
+        class="modal fade"
+        id="modal-create"
+        tabindex="-1"
+        aria-labelledby="modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" name="name">Create a Pet Listing</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <div id="input-area">
+                <p>
+                  <strong>Name: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="name" />
+                </p>
+                <p>
+                  <strong>Age: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="age" />
+                </p>
+                <p>
+                  <strong>Sex: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="sex" />
+                </p>
+                <p>
+                  <strong>Type: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="type" />
+                </p>
+                <p>
+                  <strong>Breed: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="breed" />
+                </p>
+                <p>
+                  <strong>Color: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="color" />
+                </p>
+                <p>
+                  <strong>Spayed/Neutered: &nbsp;&nbsp;</strong>
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    name="fixed"
+                  />
+                </p>
+                <p>
+                  <strong>Animal ID: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="id" />
+                </p>
+                <p>
+                  <strong>Microchip Number: &nbsp;&nbsp;</strong
+                  ><input
+                    type="text"
+                    class="form-control"
+                    name="microchip_num"
+                  />
+                </p>
+                <p>
+                  <strong>Summary: &nbsp;&nbsp;</strong
+                  ><textarea
+                    class="textarea form-control"
+                    name="summary"
+                  ></textarea>
+                </p>
+                <p>
+                  <strong>Health Information: &nbsp;&nbsp;</strong
+                  ><textarea
+                    class="textarea form-control"
+                    name="health_info"
+                  ></textarea>
+                </p>
+                <p>
+                  <strong>Image URL: &nbsp;&nbsp;</strong
+                  ><input class="textarea form-control" name="image" />
+                </p>
+              </div>
+            </div>
+
+            <!-- Modal: Update Pet -->
+            <div class="modal-footer" id="modalButton">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="btn-cancel"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                id="btn-save"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modal-update"
+        tabindex="-1"
+        aria-labelledby="modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" name="name">Update a Pet Listing</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <div id="update-area">
+                <p>
+                  <strong>Name: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="name" />
+                </p>
+                <p>
+                  <strong>Age: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="age" />
+                </p>
+                <p>
+                  <strong>Sex: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="sex" />
+                </p>
+                <p>
+                  <strong>Type: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="type" />
+                </p>
+                <p>
+                  <strong>Breed: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="breed" />
+                </p>
+                <p>
+                  <strong>Color: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="color" />
+                </p>
+                <p>
+                  <strong>Spayed/Neutered: &nbsp;&nbsp;</strong>
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    name="fixed"
+                  />
+                </p>
+                <p>
+                  <strong>Animal ID: &nbsp;&nbsp;</strong
+                  ><input type="text" class="form-control" name="id" />
+                </p>
+                <p>
+                  <strong>Microchip Number: &nbsp;&nbsp;</strong
+                  ><input
+                    type="text"
+                    class="form-control"
+                    name="microchip_num"
+                  />
+                </p>
+                <p>
+                  <strong>Summary: &nbsp;&nbsp;</strong
+                  ><textarea
+                    class="textarea form-control"
+                    name="summary"
+                  ></textarea>
+                </p>
+                <p>
+                  <strong>Health Information: &nbsp;&nbsp;</strong
+                  ><textarea
+                    class="textarea form-control"
+                    name="health_info"
+                  ></textarea>
+                </p>
+                <p>
+                  <strong>Image URL: &nbsp;&nbsp;</strong
+                  ><input class="textarea form-control" name="image" />
+                </p>
+              </div>
+            </div>
+
+            <div class="modal-footer" id="modalButton">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="btn-cancel"
+              >
+                Cancel
+              </button>
+              <button type="button" class="btn btn-primary" id="btn-update">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
