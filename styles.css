@@ -35,6 +35,8 @@ body {
 #btn-create{
   font-size: 18px;
   padding: 10px 20px;
+  background-color: #008080;
+  border: #008080;
 }
 #input-area{
   padding: 10px 10px 0 10px;
@@ -62,6 +64,11 @@ body {
 .load-btn:hover {
   background-color: gainsboro;
 }
+.modal-footer .btn-primary{
+	background-color: #008080;
+	border: #008080;
+}
+
 
 /***************PET PAGES STYLES***************/
 

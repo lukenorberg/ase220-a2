@@ -83,12 +83,13 @@
 					<p><strong>Microchip Number: &nbsp;&nbsp;</strong><input type="text" class="form-control" name="microchip_num"></p>
 					<p><strong>Summary: &nbsp;&nbsp;</strong><textarea class="textarea form-control" name="summary"></textarea></p>
 					<p><strong>Health Information: &nbsp;&nbsp;</strong><textarea class="textarea form-control" name="health_info"></textarea></p>
+					<p><strong>Image URL: &nbsp;&nbsp;</strong><input class="textarea form-control" name="image"></p>
 				</div>
 			  </div>
 			  
 			  <div class="modal-footer" id="modalButton">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btn-cancel">Cancel</button>
-				<button type="button" class="btn btn-primary" id="btn-save">Save</button>
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btn-save">Save</button>
 			  </div>
 			</div>
 		  </div>
@@ -142,7 +143,7 @@
 				  });
 				
 				card.innerHTML = `<h1 id="name">${pets[i].name}</h1>
-				<img src="./images/pets/${pets[i].id}.jpg">
+				<img src="${pets[i].image}">
 				<p><strong>Age: </strong>${pets[i].age}</p>
 				<p><strong>Sex: </strong>${pets[i].sex}</p>
 				<p><strong>Type: </strong>${pets[i].type}</p>
@@ -191,6 +192,7 @@
 		  var summary = $('#input-area [name="summary"]').val();
 		  var health_info = $('#input-area [name="health_info"]').val();
 		  var type = $('#input-area [name="type"]').val();
+		  var image = $('#input-area [name="image"]').val();
 		  
 		  var newPet = {
 		    name: name,
@@ -204,6 +206,7 @@
 			summary: summary,
 			health_info: health_info,
 			type: type,
+			image: image,
 		  }
 		  pets.push(newPet);
 		})
