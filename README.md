@@ -1,8 +1,8 @@
 # Contributors
 
 Luke Norberg
-* Created number pagination
-* added additional bootstrap styling
+* Created the update button and logic
+* Combined and refactored code
 
 Anna Dinius
 * Created the modal
