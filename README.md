@@ -5,8 +5,8 @@ Luke Norberg
 * Combined and refactored code
 
 Anna Dinius
-* Created the modal
-* Integrated the modal into the load more pagination page
+* Created the delete button and logic
+* Created the create button and logic
 
 Clarissa Hornback
 * Created the load more pagination page
