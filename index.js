@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
   var offset = 0;
   var rpp = 9;
   let selectedId = 0;
@@ -23,7 +23,7 @@ $(function () {
   loadMoreButton.classList.add("btn", "load-btn");
   loadMoreButton.classList.add("btn-primary");
   loadMoreButton.innerText = "Load more";
-  loadMoreButton.addEventListener("click", function () {
+  loadMoreButton.addEventListener("click", function() {
     offset += 9;
     displayElements();
   });
@@ -50,12 +50,12 @@ $(function () {
 
   displayElements();
 
-  $(document).on("click", ".btn-danger", function () {
+  $(document).on("click", ".btn-danger", function() {
     pets[parseInt($(this).parents(".card")[0].id)] = null;
     $(this).parents(".card").remove();
   });
 
-  $(document).on("click", ".getButton", function () {
+  $(document).on("click", ".getButton", function() {
     let id = $(this).attr("data-id");
     $("#modal [name=name]").text(pets[id].name);
     $("#modal [name=breed]").text(pets[id].breed);
@@ -68,7 +68,7 @@ $(function () {
     $("#modal a").attr("href", "detail.html?item=" + id);
   });
 
-  $(document).on("click", ".update-btn", function () {
+  $(document).on("click", ".update-btn", function() {
     let update_id = $(this).attr("data-id");
     selectedId = update_id;
     $('#update-area [name="name"]').val(pets[update_id].name);
@@ -85,7 +85,7 @@ $(function () {
     $('#update-area [name="image"]').val(pets[update_id].image);
   });
 
-  $(document).on("click", "#btn-update", function () {
+  $(document).on("click", "#btn-update", function() {
     var name = $('#update-area [name="name"]').val();
     var age = $('#update-area [name="age"]').val();
     var sex = $('#update-area [name="sex"]').val();
@@ -121,7 +121,7 @@ $(function () {
 
   // "Create" button (adding input to array)
 
-  $(document).on("click", "#btn-save", function () {
+  $(document).on("click", "#btn-save", function() {
     var name = $('#input-area [name="name"]').val();
     var age = $('#input-area [name="age"]').val();
     var sex = $('#input-area [name="sex"]').val();
@@ -136,7 +136,7 @@ $(function () {
     var image = $('#input-area [name="image"]').val();
 
     var newPet = {
-      name: name,
+      name,
       age: age,
       sex: sex,
       breed: breed,
