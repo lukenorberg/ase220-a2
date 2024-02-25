@@ -58,9 +58,17 @@
     <script src="data.js"></script>
 
     <script>
+      function getIndex(id) {
+        for (let i = 0; i < pets.length; i++) {
+          if (pets[i].id == id) {
+            return i;
+          }
+        }
+        return -1;
+      }
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      let i = urlParams.getAll("item")[0];
+      let i = getIndex(parseInt(urlParams.getAll("item")[0]));
 
 	//filling in the src attribute of the image based on the pet id
       document
