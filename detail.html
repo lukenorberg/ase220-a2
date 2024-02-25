@@ -54,54 +54,49 @@
           </div>
         </div>
       </div>
-	
-    <script src="data.js"></script>
-
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <script>
-      function getIndex(id) {
-        for (let i = 0; i < pets.length; i++) {
-          if (pets[i].id == id) {
-            return i;
+      $(function() {
+        function getIndex(id, arr) {
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i].id == id) {
+              return i;
+            }
           }
+          return -1;
         }
-        return -1;
-      }
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      let i = getIndex(parseInt(urlParams.getAll("item")[0]));
 
-	//filling in the src attribute of the image based on the pet id
-      document
-        .getElementById("photo")
-        .setAttribute("src", "images/pets/" + pets[i].id + ".jpg");
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let apiUrl = "https://jsonblob.com/api/jsonBlob/1210772481471537152";
 
-      //filling in the text information on the page
-      document.getElementById("name").innerText = pets[i].name;
-      document.getElementById("breed").innerHTML =
-        "<strong>Breed: </strong>" + pets[i].breed;
-      document.getElementById("sex").innerHTML =
-        "<strong>Sex: </strong>" + pets[i].sex;
-      document.getElementById("age").innerHTML =
-        "<strong>Age: </strong>" + pets[i].age;
-      document.getElementById("color").innerHTML =
-        "<strong>Color: </strong>" + pets[i].color;
-      document.getElementById("fixed").innerHTML =
-        "<strong>Spayed/Neutered: </strong>" + pets[i].fixed;
-      document.getElementById("id").innerHTML =
-        "<strong>Animal ID: </strong>" + pets[i].id;
-      document.getElementById("microchip_num").innerHTML =
-        "<strong>Microchip Number: </strong>" + pets[i].microchip_num;
-      document.getElementById("breed").innerHTML =
-        "<strong>Breed: </strong>" + pets[i].breed;
-      document.getElementById("summary").innerHTML =
-        "<strong>Summary: </strong>" + pets[i].summary;
+        $.get(apiUrl, function(data) {
+          let pets = data;
+          let petId = parseInt(urlParams.getAll("item")[0]);
+          let index = getIndex(petId, pets);
 
-      let health_info = document.getElementById("health_info");
-      for (let j = 0; j < pets[i].health_info.length; j++) {
-        let info = document.getElementById(`info_${j + 1}`);
-        info.innerHTML = pets[i].health_info[j];
-      }
+          $("#photo").attr("src", "images/pets/" + pets[index].id + ".jpg");
+          $("#name").text(pets[index].name);
+          $("#breed").html("<strong>Breed: </strong>" + pets[index].breed);
+          $("#sex").html("<strong>Sex: </strong>" + pets[index].sex);
+          $("#age").html("<strong>Age: </strong>" + pets[index].age);
+          $("#color").html("<strong>Color: </strong>" + pets[index].color);
+          $("#fixed").html("<strong>Spayed/Neutered: </strong>" + pets[index].fixed);
+          $("#id").html("<strong>Animal ID: </strong>" + pets[index].id);
+          $("#microchip_num").html("<strong>Microchip Number: </strong>" + pets[index].microchip_num);
+          $("#summary").html("<strong>Summary: </strong>" + pets[index].summary);
 
+          //filling in the text information on the page
+          let healthInfo = pets[index].health_info;
+          for (let j = 0; j < healthInfo.length; j++) {
+            $(`#info_${j + 1}`).html(healthInfo[j]);
+          }
+        });
+      });
     </script>
   </body>
 </html>
