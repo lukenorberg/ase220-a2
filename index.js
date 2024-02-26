@@ -64,7 +64,7 @@ $(function() {
       loadMoreButton.hidden = true;
     }
   }
-
+  var pets;
   function displayElements(contentCleared = false) {
     $.get(apiUrl, function(data) {
       pets = data;
@@ -105,6 +105,8 @@ $(function() {
     });
   });
 
+  // "Update" button
+
   $(document).on("click", ".update-btn", function() {
     let petId = parseInt($(this).attr("data-id"));
     $.get(apiUrl, function(data) {
@@ -118,9 +120,8 @@ $(function() {
       $('#update-area [name="breed"]').val(pets[petIndex].breed);
       $('#update-area [name="color"]').val(pets[petIndex].color);
       $('#update-area [name="fixed"]').prop("checked", pets[petIndex].fixed);
-      $('#update-area [name="microchip_num"]').val(
-        pets[petIndex].microchip_num,
-      );
+	  $('#update-area [name="id"]').val(pets[petIndex].id);
+      $('#update-area [name="microchip_num"]').val(pets[petIndex].microchip_num);
       $('#update-area [name="summary"]').val(pets[petIndex].summary);
       $('#update-area [name="health_info"]').val(pets[petIndex].health_info);
       $('#update-area [name="type"]').val(pets[petIndex].type);
@@ -128,37 +129,53 @@ $(function() {
     });
   });
 
-  $(document).on("click", "#btn-update", function() {
-    var name = $('#update-area [name="name"]').val();
-    var age = $('#update-area [name="age"]').val();
-    var sex = $('#update-area [name="sex"]').val();
-    var breed = $('#update-area [name="breed"]').val();
-    var color = $('#update-area [name="color"]').val();
-    var fixed = $('#update-area [name="fixed"]').is(":checked");
-    var microchip_num = $('#update-area [name="microchip_num"]').val();
-    var summary = $('#update-area [name="summary"]').val();
-    var health_info = $('#update-area [name="health_info"]').val();
-    var type = $('#update-area [name="type"]').val();
-    var image = $('#update-area [name="image"]').val();
+  // "Update" modal "Save" button
 
-    pets[selectedIndex].name = name;
-    pets[selectedIndex].age = age;
-    pets[selectedIndex].sex = sex;
-    pets[selectedIndex].breed = breed;
-    pets[selectedIndex].color = color;
-    pets[selectedIndex].fixed = fixed;
-    pets[selectedIndex].microchip_num = microchip_num;
-    pets[selectedIndex].summary = summary;
-    pets[selectedIndex].health_info = health_info;
-    pets[selectedIndex].type = type;
-    pets[selectedIndex].image = image;
-
+  $("#btn-update").click(function() {
+	let petId = parseInt($('#update-area [name="id"]').val());
+    $.get(apiUrl, function(data) {
+	  let pets = data;
+	  let petIndex = getIndex(petId, pets);
+	  
+	  if (petIndex !== -1) {
+  	    pets[petIndex].name = $('#update-area [name="name"]').val();
+	    pets[petIndex].age = $('#update-area [name="age"]').val();
+	    pets[petIndex].sex = $('#update-area [name="sex"]').val();
+	    pets[petIndex].breed = $('#update-area [name="breed"]').val();
+	    pets[petIndex].color = $('#update-area [name="color"]').val();
+		pets[petIndex].fixed = $('#update-area [name="fixed"]').is(" :checked");
+		pets[petIndex].microchip_num = $('#update-area [name="microchip_num"]').val();
+		pets[petIndex].summary = $('#update-area [name="summary"]').val();
+		pets[petIndex].health_info = $('#update-area [name="health_info"]').val();
+		pets[petIndex].type = $('#update-area [name="type"]').val();
+		pets[petIndex].image = $('#update-area [name="image"]').val();
+		
+		$.ajax({
+		  type: "PUT",
+		  url: apiUrl,
+		  data: JSON.stringify(pets),
+		  contentType: "application/json; charset=utf-8",
+		  dataType: "json",
+		  success: function() {
+			$("#content").empty();
+			displayElements(true);
+		  },
+		  error: function(errMsg) {
+			alert(errMsg);
+		  },
+		});
+	  } else {
+		alert("Pet not found.");
+	  }
+	});
+  });
+/*
     $(`#name-${pets[selectedIndex].id}`).text(name);
     $(`#image-${pets[selectedIndex].id}`).text(image);
     $(`#age-${pets[selectedIndex].id}`).text(age);
     $(`#sex-${pets[selectedIndex].id}`).text(sex);
-    $(`#type-${pets[selectedIndex].id}`).text(type);
-  });
+    $(`#type-${pets[selectedIndex].id}`).text(type);*/
+});
 
   // "Create" button (adding input to array)
 
@@ -203,4 +220,4 @@ $(function() {
       });
     });
   });
-});
+
