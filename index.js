@@ -3,7 +3,7 @@ $(function() {
   var rpp = 9;
   let selectedIndex = 0;
 
-  let apiUrl = "http://jsonblob.com/1210772481471537152";
+  let apiUrl = "https://jsonblob.com/api/jsonBlob/1212130449811169280";
 
   function getIndex(id, arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -26,6 +26,8 @@ $(function() {
     }
     return count === 0;
   }
+  
+  // Creating the inner card function (displaying card data)
 
   function createInnerCard(index, pets) {
     return `
@@ -43,6 +45,8 @@ $(function() {
   `;
   }
 
+  // "Load more" button
+
   let loadMoreButton = document.createElement("button");
   loadMoreButton.classList.add("btn", "load-btn");
   loadMoreButton.classList.add("btn-primary");
@@ -52,6 +56,8 @@ $(function() {
     displayElements();
   });
   document.querySelector("#loadmore").append(loadMoreButton);
+
+  // Create card function
 
   function createCard(index, pets) {
     let card = document.createElement("div");
@@ -64,10 +70,14 @@ $(function() {
       loadMoreButton.hidden = true;
     }
   }
+  
+  // Displaying the cards
+  
   var pets;
   function displayElements(contentCleared = false) {
     $.get(apiUrl, function(data) {
-      pets = data;
+	  pets = data;
+	  console.log(pets);
       for (
         let i = contentCleared ? 0 : offset;
         i < Math.min(offset + rpp, pets.length);
@@ -97,8 +107,9 @@ $(function() {
 	    pets.splice(petIndex, 1);
 	  
 	    $.ajax({
-		  type: "DELETE",
+		  type: "PUT",
 		  url: apiUrl,
+		  data: JSON.stringify(pets),
 		  contentType: "application/json; charset=utf-8",
 		  dataType: "json",
 		  success: function() {
@@ -158,7 +169,7 @@ $(function() {
     });
   });
 
-  // "Update" modal "Save" button
+  // "Update" modal - "Save" button
 
   $("#btn-update").click(function() {
 	let petId = parseInt($('#update-area [name="id"]').val());
