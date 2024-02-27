@@ -3,7 +3,7 @@ $(function() {
   var rpp = 9;
   let selectedIndex = 0;
 
-  let apiUrl = "https://jsonblob.com/api/jsonBlob/1210772481471537152";
+  let apiUrl = "http://jsonblob.com/1210772481471537152";
 
   function getIndex(id, arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -37,8 +37,8 @@ $(function() {
     <a href="detail.html?item=${pets[index].id}" id="link-${pets[index].id}"></a>
     <div class="d-flex justify-content-center" id="btn-box-${pets[index].id}">
         <button id="update-${pets[index].id}" data-id="${pets[index].id}" class="btn btn-secondary update-btn" data-bs-toggle="modal" data-bs-target="#modal-update">Update</button>
-        <button id="delete-${pets[index].id}" class="btn btn-sm btn-danger btn-delete">Delete</button>
-        <button class="btn btn-primary getButton load-btn" type="button" data-bs-toggle="modal" data-bs-target="#modal" data-id="${pets[index].id}">See Details</button>
+        <button id="delete-${pets[index].id}" data-id="${pets[index].id}" class="btn btn-sm btn-danger btn-delete">Delete</button>
+        <button class="btn btn-primary detailButton load-btn" type="button" data-bs-toggle="modal" data-bs-target="#modal" data-id="${pets[index].id}">See Details</button>
     </div>
   `;
   }
@@ -80,15 +80,44 @@ $(function() {
 
   displayElements();
 
-  $(document).on("click", ".btn-danger", function() {
-    let cardId = getIndex(parseInt($(this).closest(".card").attr("data-id")));
-    pets.splice(cardId, 1);
-    $(this).closest(".card").remove();
-    $("#content").empty();
-    displayElements(true);
+  // "Delete" button
+
+  $(document).on("click", ".btn-delete", function() {
+    console.log("Clicked");
+	let petId = parseInt($(this).attr("data-id"));
+	
+	$.get(apiUrl, function(data) {
+	  let pets = data;
+	  let petIndex = getIndex(petId, pets);
+      $(this).closest(".card").remove();
+      $("#content").empty();
+      displayElements(true);
+	  
+	  if (petIndex != -1){
+	    pets.splice(petIndex, 1);
+	  
+	    $.ajax({
+		  type: "DELETE",
+		  url: apiUrl,
+		  contentType: "application/json; charset=utf-8",
+		  dataType: "json",
+		  success: function() {
+			$("#content").empty();
+			displayElements(true);
+		  },
+		  error: function(errMsg) {
+			alert(errMsg);
+		  },
+		});
+	  } else {
+	    alert("Pet not found.");
+	  }
+    });
   });
 
-  $(document).on("click", ".getButton", function() {
+  // "See Details" button
+  
+  $(document).on("click", ".detailButton", function() {
     let animalId = parseInt($(this).attr("data-id"));
     $.get(apiUrl, function(data) {
       let pets = data;
@@ -169,12 +198,6 @@ $(function() {
 	  }
 	});
   });
-/*
-    $(`#name-${pets[selectedIndex].id}`).text(name);
-    $(`#image-${pets[selectedIndex].id}`).text(image);
-    $(`#age-${pets[selectedIndex].id}`).text(age);
-    $(`#sex-${pets[selectedIndex].id}`).text(sex);
-    $(`#type-${pets[selectedIndex].id}`).text(type);*/
 });
 
   // "Create" button (adding input to array)
