@@ -5,8 +5,8 @@ Luke Norberg
 * Combined and refactored code
 
 Anna Dinius
-* Created the delete button and logic
-* Created the create button and logic
+* Implemented PUT request for Delete button
+* Implemented PUT request for Update button
 
 Clarissa Hornback
 * Created the load more pagination page
