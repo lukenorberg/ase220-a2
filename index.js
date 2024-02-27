@@ -145,7 +145,7 @@ $(function() {
     });
   });
 
-  // "Update" button
+  // "Update" button - load modal with pet info
 
   $(document).on("click", ".update-btn", function() {
     let petId = parseInt($(this).attr("data-id"));
