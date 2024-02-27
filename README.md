@@ -1,8 +1,8 @@
 # Contributors
 
 Luke Norberg
-* Created the update button and logic
-* Combined and refactored code
+* Implemented GET requests for displaying cards and for Create button
+* Refactored code
 
 Anna Dinius
 * Implemented PUT request for Delete button
